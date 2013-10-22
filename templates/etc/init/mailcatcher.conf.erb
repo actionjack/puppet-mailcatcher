@@ -1,0 +1,14 @@
+# mailcatcher - mock smtp server
+#
+# mailCatcher runs a super simple SMTP server which catches any
+# message sent to it to display in a web interface.
+
+description     "mock smtp server"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+expect fork
+respawn
+
+exec /usr/local/bin/mailcatcher<%= @options.to_s %>
