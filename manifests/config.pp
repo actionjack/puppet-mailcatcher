@@ -8,11 +8,11 @@ class mailcatcher::config {
     shell            => '/bin/true',
   }
 
-  $options = join_keys_to_values({' --smtp-ip'   => $mailcatcher::smtp_ip,
+  $options = sort(join_keys_to_values({' --smtp-ip'   => $mailcatcher::smtp_ip,
                                   ' --smtp-port' => $mailcatcher::smtp_port,
                                   ' --http-ip'   => $mailcatcher::http_ip,
                                   ' --http-port' => $mailcatcher::http_port,
-                                 }, ' ')
+                                 }, ' '))
 
   file {'/etc/init/mailcatcher.conf':
     ensure  => 'file',
