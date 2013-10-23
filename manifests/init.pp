@@ -55,6 +55,7 @@ class mailcatcher (
   $smtp_port = $mailcatcher::params::smtp_port,
   $http_ip   = $mailcatcher::params::http_ip,
   $http_port = $mailcatcher::params::http_port,
+  $package   = $mailcatcher::params::package
 ) inherits mailcatcher::params {
 
   class {'mailcatcher::package': } ->

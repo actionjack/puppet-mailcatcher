@@ -1,7 +1,7 @@
 # class mailcatcher::package
 #
 class mailcatcher::package {
-  package { ['ruby-dev','sqlite3','libsqlite3-dev']:
+  package { $package :
     ensure => 'present'
   } ->
   package { 'mailcatcher':

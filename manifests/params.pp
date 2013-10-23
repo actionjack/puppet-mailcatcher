@@ -5,4 +5,17 @@ class mailcatcher::params {
   $smtp_port = '1025'
   $http_ip   = '0.0.0.0'
   $http_port = '1080'
+
+  case $::osfamily {
+
+    'Debian': {
+      $package = ['ruby-dev','sqlite3','libsqlite3-dev']
+    }
+    'Redhat': {
+      fail("${::osfamily} is not supported yet.")
+    }
+    default: {
+      fail("${::osfamily} is not supported.")
+    }
+  }
 }
