@@ -8,11 +8,9 @@ description     "mock smtp server"
 start on startup
 stop on shutdown
 
-respawn
-
 setuid mailcatcher
 setgid mailcatcher
 
-
-exec mailcatcher<%= @options.to_s %> -f & >>/var/log/mailcatcher/mailcatcher.log
-
+script
+ exec nohup /usr/local/bin/mailcatcher<%= @options.to_s %> -f  >> /var/log/mailcatcher/mailcatcher.log 2>&1
+end script
