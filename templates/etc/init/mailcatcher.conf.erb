@@ -5,10 +5,14 @@
 
 description     "mock smtp server"
 
-start on runlevel [2345]
-stop on runlevel [!2345]
+start on startup
+stop on shutdown
 
-expect fork
 respawn
 
-exec /usr/local/bin/mailcatcher<%= @options.to_s %>
+setuid mailcatcher
+setgid mailcatcher
+
+
+exec mailcatcher<%= @options.to_s %> -f & >>/var/log/mailcatcher/mailcatcher.log
+

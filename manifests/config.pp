@@ -20,4 +20,12 @@ class mailcatcher::config {
     mode    => '0644',
     notify  => Class['mailcatcher::service']
   }
+
+  file {'/var/log/mailcatcher':
+    ensure  => 'directory',
+    owner   => 'mailcatcher',
+    group   => 'mailcatcher',
+    mode    => '0755',
+    require => User['mailcatcher']
+  }
 }
