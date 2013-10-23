@@ -1,12 +1,11 @@
 name    'actionjack-mailcatcher'
 version '0.1.0'
-source 'UNKNOWN'
+source 'https://github.com/actionjack/puppet-mailcatcher'
 author 'actionjack'
 license 'Apache License, Version 2.0'
-summary 'UNKNOWN'
-description 'UNKNOWN'
-project_page 'UNKNOWN'
+summary 'Install and configure the mailcatcher application.'
+description "This puppet module is used to install and configure the mailcatcher application.
+MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface."
+project_page 'https://github.com/actionjack/puppet-mailcatcher'
 
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
-dependency 'puppetlabs/stdlib'
+dependency 'puppetlabs/stdlib', '>= 2.2.1'
