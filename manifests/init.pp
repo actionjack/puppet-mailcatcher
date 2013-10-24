@@ -46,9 +46,7 @@
 # Copyright 2013 Martin Jackson, unless otherwise noted.
 #
 # Todo
-# - Mailcatcher doesn't respect shutdown operation in upstart script
 # - Only supports debian based distros need support for other distros e.g. redhat, centos, or Amazon.
-# - Implement tests and integrate into travis-ci
 #
 class mailcatcher (
   $smtp_ip   = $mailcatcher::params::smtp_ip,
