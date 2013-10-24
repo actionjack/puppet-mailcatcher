@@ -12,7 +12,7 @@ class mailcatcher::config {
                                   ' --smtp-port' => $mailcatcher::smtp_port,
                                   ' --http-ip'   => $mailcatcher::http_ip,
                                   ' --http-port' => $mailcatcher::http_port,
-                                 }, ' '))
+  }, ' '))
 
   file {'/etc/init/mailcatcher.conf':
     ensure  => 'file',
