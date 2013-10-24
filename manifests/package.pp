@@ -1,7 +1,7 @@
 # class mailcatcher::package
 #
 class mailcatcher::package {
-  package { $package :
+  package { $mailcatcher::packages :
     ensure => 'present'
   } ->
   package { 'mailcatcher':

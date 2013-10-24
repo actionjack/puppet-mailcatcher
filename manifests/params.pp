@@ -9,7 +9,7 @@ class mailcatcher::params {
   case $::osfamily {
 
     'Debian': {
-      $package = ['ruby-dev','sqlite3','libsqlite3-dev', 'rubygems']
+      $packages = ['ruby-dev','sqlite3','libsqlite3-dev', 'rubygems']
     }
     'Redhat': {
       fail("${::osfamily} is not supported yet.")
