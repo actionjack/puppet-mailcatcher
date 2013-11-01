@@ -1,7 +1,8 @@
 # == Class: mailcatcher
 #
 # Install and configure Mailcatcher.
-# MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
+# MailCatcher runs a super simple SMTP server which catches any message sent to
+# it to display in a web interface.
 # http://mailcatcher.me/
 #
 # === Parameters
@@ -24,6 +25,9 @@
 #   What TCP Port the mailcatcher web mail client service should listen on.
 #   The default is 1080
 #
+# [*mailcatcher_path*]
+#   Path to the mailcatcher program.
+#   The default is '/usr/local/bin'
 #
 # === Examples
 #
@@ -46,13 +50,15 @@
 # Copyright 2013 Martin Jackson, unless otherwise noted.
 #
 # Todo
-# - Only supports debian based distros need support for other distros e.g. redhat, centos, or Amazon.
+# - Only supports debian based distros need support for other distros
+#   e.g. redhat, centos, or Amazon.
 #
 class mailcatcher (
-  $smtp_ip   = $mailcatcher::params::smtp_ip,
-  $smtp_port = $mailcatcher::params::smtp_port,
-  $http_ip   = $mailcatcher::params::http_ip,
-  $http_port = $mailcatcher::params::http_port
+  $smtp_ip          = $mailcatcher::params::smtp_ip,
+  $smtp_port        = $mailcatcher::params::smtp_port,
+  $http_ip          = $mailcatcher::params::http_ip,
+  $http_port        = $mailcatcher::params::http_port,
+  $mailcatcher_path = $mailcatcher::params::mailcatcher_path
 ) inherits mailcatcher::params {
 
   class {'mailcatcher::package': } ->

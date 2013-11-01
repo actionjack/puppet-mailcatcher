@@ -15,11 +15,10 @@ describe 'mailcatcher', :type => :class do
         it { should contain_package('libsqlite3-dev') }
         it { should contain_package('rubygems') }
         it { should contain_package('mailcatcher').with({ 'provider' => 'gem'}) }
-        it { should contain_user('mailcatcher')}
-        it { should contain_file('/etc/init/mailcatcher.conf').with_content(/--http-ip\s0.0.0.0/)}
-        it { should contain_file('/etc/init/mailcatcher.conf').with_content(/--http-port\s1080/)}
-        it { should contain_file('/etc/init/mailcatcher.conf').with_content(/--smtp-ip 0.0.0.0/)}
-        it { should contain_file('/etc/init/mailcatcher.conf').with_content(/--smtp-port\s1025/)}
+        it { should contain_user('mailcatcher') }
+        it 'should contain a properly formatted start up configuration for upstart' do
+          should contain_file('/etc/init/mailcatcher.conf').with_content(/exec\s+nohup\s+\/usr\/local\/bin\/mailcatcher\s+--http-ip\s+0\.0\.0\.0\s+--http-port\s+1080\s+--smtp-ip\s+0\.0\.0\.0\s+--smtp-port\s+1025\s+-f/)
+        end
         it { should contain_file('/etc/init/mailcatcher.conf').with({ :notify => 'Class[Mailcatcher::Service]'})}
         it { should contain_file('/var/log/mailcatcher').with({
             :ensure  => 'directory',

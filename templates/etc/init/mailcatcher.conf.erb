@@ -12,5 +12,5 @@ setuid mailcatcher
 setgid mailcatcher
 
 script
- exec nohup /usr/local/bin/mailcatcher<%= @options.to_s %> -f  >> /var/log/mailcatcher/mailcatcher.log 2>&1
+ exec nohup <%= @mailcatcher_path %>/mailcatcher<%= @options.join(' ') %> -f  >> /var/log/mailcatcher/mailcatcher.log 2>&1
 end script
