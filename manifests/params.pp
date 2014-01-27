@@ -16,7 +16,7 @@ class mailcatcher::params {
       $provider = 'upstart'
      }
     'Redhat': {
-      $packages = ['sqlite-devel']
+      $packages = ['ruby-devel', 'sqlite-devel', 'rubygems']      
       $config_file = '/etc/init.d/mailcatcher'
       $template = 'mailcatcher/etc/init/mailcatcher.sysv.erb'
       $provider = 'redhat'
