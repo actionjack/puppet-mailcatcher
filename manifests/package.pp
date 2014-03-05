@@ -7,6 +7,8 @@ class mailcatcher::package (
   $ruby_gems       = $mailcatcher::params::ruby_gems
 ){
 
+  anchor { 'mailcatcher::packages::begin': }
+
   if ! defined(Package[$ruby_dev]) {
     package { $ruby_dev :
       ensure => 'present'
@@ -31,9 +33,12 @@ class mailcatcher::package (
     }
   }
 
+  anchor { 'mailcatcher::packages::end': } ->
+
   package { 'mailcatcher':
     ensure   => 'present',
     provider => 'gem',
-    require  => Package[$ruby_dev,$sqlite,$sqlite_dev_libs,$ruby_gems]
   }
+
+
 }
