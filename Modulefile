@@ -1,5 +1,5 @@
 name    'actionjack-mailcatcher'
-version '0.1.5'
+version '0.1.6'
 source 'https://github.com/actionjack/puppet-mailcatcher'
 author 'actionjack'
 license 'Apache License, Version 2.0'
