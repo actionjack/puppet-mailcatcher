@@ -16,12 +16,14 @@ http://mailcatcher.me/
 Current dependencies are:
 
  * 'puppetlabs/stdlib', '>= 2.1.0'
+ * 'puppetlabs/ruby'
 
 ## Usage
 
 
 
 ```ruby
+class {'ruby': }
 class {'mailcatcher': }
 ```
 
