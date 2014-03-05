@@ -1,6 +1,11 @@
 # class mailcatcher::package
 #
-class mailcatcher::package {
+class mailcatcher::package (
+  $ruby_dev        = $mailcatcher::params::ruby_dev,
+  $sqlite          = $mailcatcher::params::sqlite,
+  $sqlite_dev_libs = $mailcatcher::params::sqlite_dev_libs,
+  $ruby_gems       = $mailcatcher::params::ruby_gems
+){
 
   if ! defined(Package[$ruby_dev]) {
     package { $ruby_dev :
