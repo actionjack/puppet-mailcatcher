@@ -11,4 +11,3 @@ to display in a web interface."
 project_page 'https://github.com/actionjack/puppet-mailcatcher'
 
 dependency 'puppetlabs/stdlib', '>= 2.2.1'
-dependency 'puppetlabs/ruby', '>= 0.1.1'
