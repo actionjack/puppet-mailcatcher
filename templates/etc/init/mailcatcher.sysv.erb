@@ -1,0 +1,66 @@
+#!/bin/sh
+#
+# chkconfig: - 85 15
+# description: mailcatcher is a captive smtp server with a web interface
+# which allows you to view "sent" emails.
+# 
+# processname: mailcatcher
+#
+
+# Process ID - this will be updated using the updatepid function below.
+PID=""
+
+updatepid(){
+   PID=$(ps aux|grep "ruby /usr/bin/[m]ailcatcher" |awk '{print $2}')
+}
+
+start(){
+   updatepid
+   if [ ! -z $PID ] ; then
+      echo "Mailcatcher is already running."
+      exit 1
+   else
+      /usr/bin/mailcatcher <%= @options.join(' ') %>
+   fi
+}
+
+stop(){
+   updatepid
+   if [ ! -z $PID ] ; then
+      kill $PID
+      return $?
+   fi
+}
+
+status(){
+   updatepid
+   if [ ! -z $PID ] ; then
+      echo "Mailcatcher is running."
+      exit 0
+   else
+     echo "Mailcatcher is not running."
+     exit 3
+   fi
+}
+
+case "$1" in
+ 	 start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    stop
+    updatepid
+    start
+    ;;
+  status)
+    status
+    ;;
+  *)
+    echo "Usage: /etc/init.d/mailcatcher {start|stop|restart|status}"
+    exit 1
+esac
+
+exit $?

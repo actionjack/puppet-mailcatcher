@@ -1,6 +1,6 @@
 # class mailcatcher::config
 #
-class mailcatcher::config {
+class mailcatcher::config  {
   user { 'mailcatcher':
     ensure           => 'present',
     comment          => 'Mailcatcher Mock Smtp Service User',
@@ -14,10 +14,10 @@ class mailcatcher::config {
                                   ' --http-port' => $mailcatcher::http_port,
   }, ' '))
 
-  file {'/etc/init/mailcatcher.conf':
+  file {$mailcatcher::params::config_file:
     ensure  => 'file',
-    content => template('mailcatcher/etc/init/mailcatcher.conf.erb'),
-    mode    => '0644',
+    content => template($mailcatcher::params::template),
+    mode    => '0755',
     notify  => Class['mailcatcher::service']
   }
 
