@@ -10,6 +10,7 @@ describe 'mailcatcher', :type => :class do
       end
 
       describe 'by default it' do
+        it { should compile.with_all_deps }
         it { should contain_package('ruby-dev') }
         it { should contain_package('sqlite3') }
         it { should contain_package('libsqlite3-dev') }
@@ -36,6 +37,18 @@ describe 'mailcatcher', :type => :class do
         })}
 
       end
+    end
+    context 'When I install the mailcatcher base class on Redhat' do
+      let :facts do {
+          :osfamily     =>    'Redhat',
+          :operatingsystem => 'Redhat'
+      }
+      end
+
+      describe 'by default it' do
+        it { should compile.with_all_deps}
+      end
+
     end
   end
 end
