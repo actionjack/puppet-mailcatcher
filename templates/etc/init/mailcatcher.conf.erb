@@ -5,8 +5,8 @@
 
 description     "mock smtp server"
 
-start on runlevel [2345]
-stop on runlevel [06]
+start on startup
+stop on shutdown
 
 setuid mailcatcher
 setgid mailcatcher
