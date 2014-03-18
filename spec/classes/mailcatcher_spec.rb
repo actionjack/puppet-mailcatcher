@@ -48,7 +48,6 @@ describe 'mailcatcher', :type => :class do
       describe 'by default it' do
         it { should compile.with_all_deps}
       end
-
     end
   end
 end
