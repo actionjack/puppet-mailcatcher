@@ -10,13 +10,13 @@ class mailcatcher::params {
   case $::osfamily {
 
     'Debian': {
-      $packages = ['ruby-dev','sqlite3','libsqlite3-dev', 'rubygems']
+      $packages = ['sqlite3', 'libsqlite3-dev']
       $config_file = '/etc/init/mailcatcher.conf'
       $template = 'mailcatcher/etc/init/mailcatcher.conf.erb'
       $provider = 'upstart'
      }
     'Redhat': {
-      $packages = ['ruby-devel', 'sqlite-devel', 'rubygems', 'gcc-c++']      
+      $packages = ['sqlite-devel', 'gcc-c++']
       $config_file = '/etc/init.d/mailcatcher'
       $template = 'mailcatcher/etc/init/mailcatcher.sysv.erb'
       $provider = 'redhat'

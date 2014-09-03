@@ -9,3 +9,4 @@ MailCatcher runs a super simple SMTP server which catches any message sent to it
 project_page 'https://github.com/actionjack/puppet-mailcatcher'
 
 dependency 'puppetlabs/stdlib', '>= 2.2.1'
+dependency 'puppetlabs/ruby', '>= 0.2.1'
