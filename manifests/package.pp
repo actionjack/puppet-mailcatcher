@@ -2,6 +2,7 @@
 #
 class mailcatcher::package {
   include ruby
+  include ruby::dev
 
   package { $mailcatcher::params::packages :
     ensure => 'present'
@@ -9,6 +10,6 @@ class mailcatcher::package {
   package { 'mailcatcher':
     ensure   => 'present',
     provider => 'gem',
-    require  => Class['ruby'],
+    require  => Class['ruby::dev'],
   }
 }
