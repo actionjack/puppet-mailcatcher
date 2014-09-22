@@ -11,10 +11,9 @@ describe 'mailcatcher', :type => :class do
 
       describe 'by default it' do
         it { should compile.with_all_deps }
-        it { should contain_package('ruby-dev') }
+        it { should contain_class('ruby') }
         it { should contain_package('sqlite3') }
         it { should contain_package('libsqlite3-dev') }
-        it { should contain_package('rubygems') }
         it { should contain_package('mailcatcher').with({ 'provider' => 'gem'}) }
         it { should contain_user('mailcatcher') }
         it 'should contain a properly formatted start up configuration for upstart' do
