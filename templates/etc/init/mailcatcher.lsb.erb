@@ -1,17 +1,21 @@
 #!/bin/sh
-#
-# chkconfig: - 85 15
-# description: mailcatcher is a captive smtp server with a web interface
-# which allows you to view "sent" emails.
-# 
-# processname: mailcatcher
-#
+### BEGIN INIT INFO
+# Provides:          mailcatcher
+# Required-Start:    $local_fs $remote_fs $syslog $named $network $time
+# Required-Stop:     $local_fs $remote_fs $syslog $named $network
+# Should-Start:      
+# Should-Stop:       
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: mailcatcher is a captive smtp server with a web interface which allows you to view "sent" emails.
+### END INIT INFO
+
 
 # Process ID - this will be updated using the updatepid function below.
 PID=""
 
 updatepid(){
-   PID=$(ps aux|grep -E "ruby(-.*)* <%= @mailcatcher_path %>/[m]ailcatcher" |awk '{print $2}')
+   PID=$(ps aux|grep -E "ruby(.*)* <%= @mailcatcher_path %>/[m]ailcatcher" |awk '{print $2}')
 }
 
 start(){
