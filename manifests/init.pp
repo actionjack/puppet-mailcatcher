@@ -31,6 +31,7 @@
 #
 # [*service_enable*]
 #   Enable Service at boot
+#   The default is true
 #
 # === Examples
 #
