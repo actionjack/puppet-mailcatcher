@@ -5,7 +5,7 @@ class mailcatcher::params {
   $smtp_port        = '1025'
   $http_ip          = '0.0.0.0'
   $http_port        = '1080'
-  $service_enable   = true
+  $service_enable   = false
 
   case $::osfamily {
     'Debian': {
