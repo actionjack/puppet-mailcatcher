@@ -29,6 +29,10 @@
 #   Path to the mailcatcher program.
 #   The default is '/usr/local/bin'
 #
+# [*service_enable*]
+#   Enable Service at boot
+#   The default is false
+#
 # === Examples
 #
 # [*default*]
@@ -58,7 +62,8 @@ class mailcatcher (
   $smtp_port        = $mailcatcher::params::smtp_port,
   $http_ip          = $mailcatcher::params::http_ip,
   $http_port        = $mailcatcher::params::http_port,
-  $mailcatcher_path = $mailcatcher::params::mailcatcher_path
+  $mailcatcher_path = $mailcatcher::params::mailcatcher_path,
+  $service_enable   = $mailcatcher::params::service_enable,
 ) inherits mailcatcher::params {
 
   class {'mailcatcher::package': } ->
