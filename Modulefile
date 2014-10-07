@@ -8,5 +8,5 @@ description "This puppet module is used to install and configure the mailcatcher
 MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface."
 project_page 'https://github.com/actionjack/puppet-mailcatcher'
 
-dependency 'puppetlabs/stdlib', '>= 2.2.1'
+dependency 'puppetlabs/stdlib', '>= 4.2.0'
 dependency 'puppetlabs/ruby', '>= 0.3.0'
