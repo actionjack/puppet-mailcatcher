@@ -15,7 +15,8 @@ http://mailcatcher.me/
 
 Current dependencies are:
 
- * 'puppetlabs/stdlib', '>= 2.1.0'
+ * 'puppetlabs/stdlib', '>= 2.2.1'
+ * 'puppetlabs/ruby', '>= 0.3.0'
 
 ## Usage
 
