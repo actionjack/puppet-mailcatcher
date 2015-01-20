@@ -2,10 +2,10 @@
 #
 class mailcatcher::config  {
   user { 'mailcatcher':
-    ensure           => 'present',
-    comment          => 'Mailcatcher Mock Smtp Service User',
-    home             => '/var/spool/mailcatcher',
-    shell            => '/bin/true',
+    ensure  => 'present',
+    comment => 'Mailcatcher Mock Smtp Service User',
+    home    => '/var/spool/mailcatcher',
+    shell   => '/bin/true',
   }
 
   $mailcatcher_path = $mailcatcher::params::mailcatcher_path
