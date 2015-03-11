@@ -1,6 +1,6 @@
 # class mailcatcher::config
 #
-class mailcatcher::config  {
+class mailcatcher::config {
   user { 'mailcatcher':
     ensure  => 'present',
     comment => 'Mailcatcher Mock Smtp Service User',

@@ -30,8 +30,12 @@
 #   The default is '/usr/local/bin'
 #
 # [*service_enable*]
-#   Enable Service at boot
+#   Enable Service at boot.
 #   The default is false
+#
+# [*version*]
+#   Install this specific version of mailcatcher.
+#   The default is latest
 #
 # === Examples
 #
@@ -51,7 +55,7 @@
 #
 # === Copyright
 #
-# Copyright 2013 Martin Jackson, unless otherwise noted.
+# Copyright 2013-2015 Martin Jackson, unless otherwise noted.
 #
 # Todo
 # - Only supports debian based distros need support for other distros
@@ -64,6 +68,7 @@ class mailcatcher (
   $http_port        = $mailcatcher::params::http_port,
   $mailcatcher_path = $mailcatcher::params::mailcatcher_path,
   $service_enable   = $mailcatcher::params::service_enable,
+  $version          = $mailcatcher::params::version,
 ) inherits mailcatcher::params {
 
   class {'mailcatcher::package': } ->
