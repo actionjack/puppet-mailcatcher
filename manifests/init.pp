@@ -34,7 +34,7 @@
 #   The default is false
 #
 # [*version*]
-#   Install this specific version of mailcatcher.
+#   Specify a specific version of mailcatcher to install.
 #   The default is latest
 #
 # === Examples
