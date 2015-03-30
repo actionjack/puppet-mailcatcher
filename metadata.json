@@ -1,0 +1,25 @@
+{
+  "name": "actionjack-mailcatcher",
+  "version": "0.1.11",
+  "author": "ActionJack",
+  "license": "Apache-2.0",
+  "summary": "Install and configure the mailcatcher application.",
+  "source": "https://github.com/actionjack/puppet-mailcatcher",
+  "project_page": "https://forge.puppetlabs.com/actionjack/mailcatcher",
+  "issues_url": "https://github.com/actionjack/puppet-mailcatcher/issues",
+  "tags": ["mailcatcher", "mock", "smtp"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem":"RedHat",
+      "operatingsystemrelease":[ "5.0", "6.0" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "12.04", "10.04" ]
+    }
+  ],
+  "dependencies": [
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=3.2.0 <5.0.0" },
+    { "name": "puppetlabs/firewall", "version_requirement": ">= 0.0.4" },
+  ]
+}
