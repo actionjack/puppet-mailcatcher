@@ -34,7 +34,7 @@ class mailcatcher::params {
       $provider = 'redhat'
 
       case $::operatingsystemmajrelease {
-        7: {
+        '7': {
           $mailcatcher_path = '/usr/local/bin'
           # json_pure is a runtime requirement which does not get installed with mailcatcher 0.5.12
           $packages = union($std_packages, ['rubygem-json_pure'])
