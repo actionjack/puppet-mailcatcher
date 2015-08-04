@@ -10,3 +10,4 @@ project_page 'https://github.com/actionjack/puppet-mailcatcher'
 
 dependency 'puppetlabs/stdlib', '>= 4.2.0'
 dependency 'puppetlabs/ruby', '>= 0.3.0'
+dependency 'puppetlabs/gcc', '>= 0.3.0'

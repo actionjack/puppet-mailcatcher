@@ -3,6 +3,7 @@
 class mailcatcher::package {
   include ruby
   include ruby::dev
+  include gcc
 
   package { $mailcatcher::params::packages :
     ensure => 'present'
