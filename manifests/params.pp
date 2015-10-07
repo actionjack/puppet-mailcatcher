@@ -16,9 +16,17 @@ class mailcatcher::params {
 
       case $::operatingsystem {
         'Ubuntu': {
-          $config_file = '/etc/init/mailcatcher.conf'
-          $template    = 'mailcatcher/etc/init/mailcatcher.conf.erb'
-          $provider    = 'upstart'
+          case $::lsbdistcodename {
+            'vivid': {
+              $config_file = '/etc/systemd/system/mailcatcher.conf'
+              $template    = 'mailcatcher/systemd/system/mailcatcher.service.erb'
+              $provider    = 'systemd'
+            }
+            default: {
+              $config_file = '/etc/init/mailcatcher.conf'
+              $template    = 'mailcatcher/etc/init/mailcatcher.conf.erb'
+              $provider    = 'upstart'
+            }
         }
         default: {
           $config_file = '/etc/init.d/mailcatcher'
