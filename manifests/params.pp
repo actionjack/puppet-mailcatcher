@@ -27,6 +27,7 @@ class mailcatcher::params {
               $template    = 'mailcatcher/etc/init/mailcatcher.conf.erb'
               $provider    = 'upstart'
             }
+          }
         }
         default: {
           $config_file = '/etc/init.d/mailcatcher'
