@@ -44,7 +44,7 @@ class mailcatcher::params {
           $packages = union($std_packages, ['rubygem-json_pure', 'rubygem-multi_json'])
           $version  = $default_version
         }
-        6: {
+        '6': {
           $mailcatcher_path = '/usr/bin'
           $packages = $std_packages
           # newer mailcatcher versions require gems which require i18n gem which is not compatible with CentOS6's ruby version 1.8.7
