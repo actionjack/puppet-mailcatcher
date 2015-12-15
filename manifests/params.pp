@@ -30,7 +30,7 @@ class mailcatcher::params {
     # RHEL/CentOS
     'Redhat': {
       # rubygem-mime-types from gem requires ruby >= 1.9.2 which is not available on CentOS6, in CentOS7 the gem installed mime-types causes "Encoding::CompatibilityError", so use the package from EPEL which just works fine for CentOS 6 and 7.
-      $std_packages = ['sqlite-devel', 'gcc-c++', 'rubygem-mime-types']
+      $std_packages = ['sqlite-devel', 'rubygem-mime-types']
       $config_file  = '/etc/init.d/mailcatcher'
       $template     = 'mailcatcher/etc/init/mailcatcher.sysv.erb'
       $provider     = 'redhat'
