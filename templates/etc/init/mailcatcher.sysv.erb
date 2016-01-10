@@ -11,7 +11,7 @@
 PID=""
 
 updatepid(){
-   PID=$(ps aux|grep -E "ruby(-.*)* <%= @mailcatcher_path %>/[m]ailcatcher" |awk '{print $2}')
+   PID=$(ps aux|grep -E "[m]ailcatcher" |awk '{print $2}')
 }
 
 start(){
