@@ -54,17 +54,19 @@ class mailcatcher::params {
           $version  = $default_version
         }
         '6': {
-          $mailcatcher_path = '/usr/bin'
+          $mailcatcher_path = '/usr/local/rbenv/shims'
           $packages = $std_packages
           # newer mailcatcher versions require gems which require i18n gem which is not compatible with CentOS6's ruby version 1.8.7
           # https://github.com/sj26/mailcatcher/issues/213
-          $version = '0.5.12'
+          ## kmeister - I found the current version (0.6.1) works fine - 1/10/16
+          ##$version = '0.5.12'
           # last version of i18n gem which worked with CentOS6's ruby version
           $fixi18nversion = '0.6.11'
           # newer versions do not accept mails with mailcatcher in background, mailcatcher in foreground works
           # Fixed in mailcatcher 0.6.1, but that one is incompatible with CentOS6
           # https://github.com/sj26/mailcatcher/issues/182
-          $fixeventmachineversion = '1.0.3'
+          ## this version of event machine fails to compile.  Newer versions work fine and don't seem to cause any problems
+          #$fixeventmachineversion = '1.0.3'
 
           # don't ask me why, otherwise everything breaks. This was not yet necessary this morning!!! WTF?!?
           # Execution of '/usr/bin/gem install -v 0.5.12 --no-rdoc --no-ri mailcatcher' returned 1: ERROR: Error installing mailcatcher: sinatra requires tilt (~> 1.3, >= 1.3.4, runtime)
