@@ -16,7 +16,7 @@ class mailcatcher::params {
 
       case $::operatingsystem {
         'Ubuntu': {
-          if versioncmp($::operatingsystemmajrelease, '14.10') > 0
+          if versioncmp($::operatingsystemmajrelease, '14.10') > 0 {
             $config_file = '/etc/systemd/system/mailcatcher.service'
             $template    = 'mailcatcher/etc/systemd/system/mailcatcher.service.erb'
             $provider    = 'systemd'
