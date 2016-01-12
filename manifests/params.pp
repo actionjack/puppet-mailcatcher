@@ -16,17 +16,14 @@ class mailcatcher::params {
 
       case $::operatingsystem {
         'Ubuntu': {
-          case $::lsbdistcodename {
-            'vivid': {
-              $config_file = '/etc/systemd/system/mailcatcher.conf'
-              $template    = 'mailcatcher/systemd/system/mailcatcher.service.erb'
-              $provider    = 'systemd'
-            }
-            default: {
-              $config_file = '/etc/init/mailcatcher.conf'
-              $template    = 'mailcatcher/etc/init/mailcatcher.conf.erb'
-              $provider    = 'upstart'
-            }
+          if versioncmp($::operatingsystemmajrelease, '14.10') > 0
+            $config_file = '/etc/systemd/system/mailcatcher.service'
+            $template    = 'mailcatcher/etc/systemd/system/mailcatcher.service.erb'
+            $provider    = 'systemd'
+          } else {
+            $config_file = '/etc/init/mailcatcher.conf'
+            $template    = 'mailcatcher/etc/init/mailcatcher.conf.erb'
+            $provider    = 'upstart'
           }
         }
         default: {
