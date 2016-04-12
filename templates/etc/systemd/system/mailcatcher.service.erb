@@ -3,7 +3,8 @@ Description=Mailcatcher Service
 
 [Service]
 Restart=always
-ExecStart=exec nohup <%= @mailcatcher_path %>/mailcatcher<%= @options.join(' ') %> -f  >> /var/log/mailcatcher/mailcatcher.log 2>&1
+ExecStart=<%= @mailcatcher_path %>/mailcatcher<%= @options.join(' ') %> -f  >> /var/log/mailcatcher/mailcatcher.log 2>&1
+ExecStop=/bin/true
 
 [Install]
 WantedBy=multi-user.target
