@@ -13,6 +13,7 @@ class mailcatcher::config {
                                   ' --smtp-port' => $mailcatcher::smtp_port,
                                   ' --http-ip'   => $mailcatcher::http_ip,
                                   ' --http-port' => $mailcatcher::http_port,
+                                  ' --no-quit'   => true,
   }, ' '))
 
   file {$mailcatcher::params::config_file:
