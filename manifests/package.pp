@@ -15,6 +15,17 @@ class mailcatcher::package {
   }
 
 
+  # Needed vor Debian
+  # See params.pp for more information
+  if ($mailcatcher::params::fixactivesupportversion) {
+    package { 'activesupport':
+      ensure   => $mailcatcher::params::fixactivesupportversion,
+      provider => 'gem',
+      require  => Class['ruby::dev'],
+      before   => Package['mailcatcher'],
+    }
+  }
+
 
   # Needed for CentOS6 backport of older mailcatcher version.
   # See params.pp for more information.

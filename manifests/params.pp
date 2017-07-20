@@ -38,6 +38,8 @@ class mailcatcher::params {
           $config_file = '/etc/init.d/mailcatcher'
           $template    = 'mailcatcher/etc/init/mailcatcher.lsb.erb'
           $provider    = 'debian'
+          # mailcatcher requires activesupport and pulls in Version 5.0.0.beta1 in debian which requires ruby 2.2.2 which is not available
+          $fixactivesupportversion = '4.2.5'
         }
       }
     }
